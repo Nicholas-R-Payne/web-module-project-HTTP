@@ -24,7 +24,8 @@ const Movie = (props) => {
     const handleDeleteClick = () => {
         axios.delete(`http://localhost:9000/api/movies/${id}`)
             .then(res => {
-                console.log(res)
+                props.deleteMovie(id);
+                push('/movies')
             })
             .catch(err => {
                 console.error(err)
